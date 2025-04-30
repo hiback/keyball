@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MINS  ,
+    LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G,                     KC_H     , RCTL_T(KC_J), RSFT_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SCLN),
     KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  ,
     KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
   ),
@@ -65,6 +65,27 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   keyball_set_scroll_mode(get_highest_layer(state) == 3);
   return state;
 }
+
+const uint16_t PROGMEM copy[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cut[] = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM paste[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM minus[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM plus[] = {KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM equal[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM lpar[] = {RCTL_T(KC_J), RSFT_T(KC_K), COMBO_END};
+const uint16_t PROGMEM rpar[] = {RSFT_T(KC_K), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM lbrc[] = {KC_M, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM rbrc[] = {KC_COMMA, KC_DOT, COMBO_END};
+const uint16_t PROGMEM dqt[] = {RCTL_T(KC_J), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM sqt[] = {KC_M, KC_DOT, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(copy, LCTL(KC_C)),   COMBO(cut, LCTL(KC_X)),
+    COMBO(paste, LCTL(KC_V)),  COMBO(minus, KC_MINS),
+    COMBO(plus, LSFT(KC_EQL)), COMBO(equal, KC_EQL),
+    COMBO(lpar, LSFT(KC_9)),   COMBO(rpar, LSFT(KC_0)),
+    COMBO(lbrc, KC_LBRC),      COMBO(rbrc, KC_RBRC),
+    COMBO(dqt, LSFT(KC_QUOT)), COMBO(sqt, KC_QUOT),
+};
 
 #ifdef OLED_ENABLE
 
