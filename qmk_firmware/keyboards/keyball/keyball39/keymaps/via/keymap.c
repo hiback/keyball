@@ -85,8 +85,8 @@ const uint16_t PROGMEM tilde[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM hash[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM grv[] = {KC_E, KC_R, COMBO_END};
 combo_t key_combos[] = {
-    COMBO(copy, LCTL(KC_C)),     COMBO(cut, LCTL(KC_X)),
-    COMBO(paste, LCTL(KC_V)),    COMBO(minus, KC_MINS),
+    COMBO(copy, LGUI(KC_C)),     COMBO(cut, LGUI(KC_X)),
+    COMBO(paste, LGUI(KC_V)),    COMBO(minus, KC_MINS),
     COMBO(plus, LSFT(KC_EQL)),   COMBO(equal, KC_EQL),
     COMBO(lpar, LSFT(KC_9)),     COMBO(rpar, LSFT(KC_0)),
     COMBO(lsbrc, KC_LBRC),       COMBO(rsbrc, KC_RBRC),
