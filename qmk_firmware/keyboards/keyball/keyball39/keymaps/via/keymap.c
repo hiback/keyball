@@ -24,10 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G,                     KC_H     , RCTL_T(KC_J), RSFT_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SCLN),
-    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  ,
-    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+    KC_Q        , KC_W        , KC_E        , KC_R        , KC_T       ,                          KC_Y         , KC_U        , KC_I        , KC_O        , KC_P           ,
+    LGUI_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LCTL_T(KC_F), KC_G       ,                          KC_H         , RCTL_T(KC_J), RSFT_T(KC_K), RALT_T(KC_L), RGUI_T(KC_SCLN),
+    KC_Z        , KC_X        , KC_C        , KC_V        , KC_B       ,                          KC_N         , KC_M        , KC_COMM     , KC_DOT      , KC_SLSH        ,
+    KC_NO       , KC_NO       , KC_NO       ,LT(3,KC_TAB) ,LT(1,KC_SPC),LT(4,KC_ESC),LT(2,KC_ENT),LT(2,KC_BSPC), KC_NO       , KC_NO       , KC_NO       , KC_NO
   ),
 
   [1] = LAYOUT_universal(
@@ -45,17 +45,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_universal(
-    RGB_TOG  , AML_TO   , AML_I50  , AML_D50  , _______  ,                            _______  , _______  , SSNP_HOR , SSNP_VRT , SSNP_FRE ,
-    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , SCRL_DVI ,                            _______  , _______  , _______  , _______  , _______  ,
-    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , SCRL_DVD ,                            CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE ,
-    QK_BOOT  , KBC_RST  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , KBC_RST  , QK_BOOT
-  ),
-
-  [4] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
     KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MINS  ,
     KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  ,
     KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+  ),
+
+  [4] = LAYOUT_universal(
+    RGB_TOG  , AML_TO   , AML_I50  , AML_D50  , _______  ,                            _______  , _______  , SSNP_HOR , SSNP_VRT , SSNP_FRE ,
+    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , SCRL_DVI ,                            _______  , _______  , _______  , _______  , _______  ,
+    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , SCRL_DVD ,                            CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE ,
+    QK_BOOT  , KBC_RST  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , KBC_RST  , QK_BOOT
   ),
 };
 // clang-format on
@@ -72,19 +72,24 @@ const uint16_t PROGMEM paste[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM minus[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM plus[] = {KC_U, KC_O, COMBO_END};
 const uint16_t PROGMEM equal[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM lpar[] = {RCTL_T(KC_J), RSFT_T(KC_K), COMBO_END};
-const uint16_t PROGMEM rpar[] = {RSFT_T(KC_K), RALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM lbrc[] = {KC_M, KC_COMMA, COMBO_END};
-const uint16_t PROGMEM rbrc[] = {KC_COMMA, KC_DOT, COMBO_END};
-const uint16_t PROGMEM dqt[] = {RCTL_T(KC_J), RALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM sqt[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM lpar[] = {LSFT_T(KC_D), LCTL_T(KC_F), COMBO_END};
+const uint16_t PROGMEM rpar[] = {RCTL_T(KC_J), RSFT_T(KC_K), COMBO_END};
+const uint16_t PROGMEM lsbrc[] = {LALT_T(KC_S), LSFT_T(KC_D), COMBO_END};
+const uint16_t PROGMEM rsbrc[] = {RSFT_T(KC_K), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM lcbrc[] = {LALT_T(KC_S), LCTL_T(KC_F), COMBO_END};
+const uint16_t PROGMEM rcbrc[] = {RCTL_T(KC_J), RALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM dqt[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM sqt[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM under[] = {KC_M, KC_DOT, COMBO_END};
 combo_t key_combos[] = {
-    COMBO(copy, LCTL(KC_C)),   COMBO(cut, LCTL(KC_X)),
-    COMBO(paste, LCTL(KC_V)),  COMBO(minus, KC_MINS),
-    COMBO(plus, LSFT(KC_EQL)), COMBO(equal, KC_EQL),
-    COMBO(lpar, LSFT(KC_9)),   COMBO(rpar, LSFT(KC_0)),
-    COMBO(lbrc, KC_LBRC),      COMBO(rbrc, KC_RBRC),
-    COMBO(dqt, LSFT(KC_QUOT)), COMBO(sqt, KC_QUOT),
+    COMBO(copy, LCTL(KC_C)),     COMBO(cut, LCTL(KC_X)),
+    COMBO(paste, LCTL(KC_V)),    COMBO(minus, KC_MINS),
+    COMBO(plus, LSFT(KC_EQL)),   COMBO(equal, KC_EQL),
+    COMBO(lpar, LSFT(KC_9)),     COMBO(rpar, LSFT(KC_0)),
+    COMBO(lsbrc, KC_LBRC),       COMBO(rsbrc, KC_RBRC),
+    COMBO(lcbrc, LSFT(KC_LBRC)), COMBO(rcbrc, LSFT(KC_RBRC)),
+    COMBO(dqt, LSFT(KC_QUOT)),   COMBO(sqt, KC_QUOT),
+    COMBO(under, LSFT(KC_MINS)),
 };
 
 #ifdef OLED_ENABLE
