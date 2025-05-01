@@ -81,6 +81,9 @@ const uint16_t PROGMEM rcbrc[] = {RCTL_T(KC_J), RALT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM dqt[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM sqt[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM under[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM tilde[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM hash[] = {KC_W, KC_R, COMBO_END};
+const uint16_t PROGMEM grv[] = {KC_E, KC_R, COMBO_END};
 combo_t key_combos[] = {
     COMBO(copy, LCTL(KC_C)),     COMBO(cut, LCTL(KC_X)),
     COMBO(paste, LCTL(KC_V)),    COMBO(minus, KC_MINS),
@@ -89,7 +92,8 @@ combo_t key_combos[] = {
     COMBO(lsbrc, KC_LBRC),       COMBO(rsbrc, KC_RBRC),
     COMBO(lcbrc, LSFT(KC_LBRC)), COMBO(rcbrc, LSFT(KC_RBRC)),
     COMBO(dqt, LSFT(KC_QUOT)),   COMBO(sqt, KC_QUOT),
-    COMBO(under, LSFT(KC_MINS)),
+    COMBO(under, LSFT(KC_MINS)), COMBO(tilde, LSFT(KC_GRV)),
+    COMBO(hash, LSFT(KC_3)),     COMBO(grv, KC_GRV),
 };
 
 #ifdef OLED_ENABLE
