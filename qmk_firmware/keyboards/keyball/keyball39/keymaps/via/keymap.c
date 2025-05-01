@@ -100,7 +100,7 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case LT(2, KC_BSPC):
   case LT(1, KC_SPC):
-    return QUICK_TAP_TERM - 150;
+    return QUICK_TAP_TERM - 80;
   default:
     return QUICK_TAP_TERM;
   }
