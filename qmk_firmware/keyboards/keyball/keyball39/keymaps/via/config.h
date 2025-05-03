@@ -40,3 +40,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define QUICK_TAP_TERM_PER_KEY
 #define QUICK_TAP_TERM 200
+#define COMBO_TERM 40
+#define COMBO_ONLY_FROM_LAYER 0
