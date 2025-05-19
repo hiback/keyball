@@ -45,9 +45,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SNIPING_ON_LAYER 1
 #if system_os == 0
 #define NORMAL_CPI 1600
+#define KEYBALL_CPI_DEFAULT NORMAL_CPI
 #define SNIPING_CPI 400
 #else
 #define NORMAL_CPI 1600
+#define KEYBALL_CPI_DEFAULT NORMAL_CPI
 #define SNIPING_CPI 400
 #endif
 #define QUICK_TAP_TERM_PER_KEY
