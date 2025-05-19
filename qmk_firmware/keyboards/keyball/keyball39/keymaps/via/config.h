@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 // 0 for macOS, 1 for Windows
-#define SYSTEM_OS 0
+#define SYSTEM_OS 1
 
 #define TAP_CODE_DELAY 5
 
