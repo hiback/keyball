@@ -33,11 +33,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #    define RGBLIGHT_EFFECT_TWINKLE
 #endif
 
+// 0 for macOS, 1 for Windows
+#define SYSTEM_OS 0
+
 #define TAP_CODE_DELAY 5
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 1
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#define AUTO_DARG_ON_LAYER 3
+#define AUTO_SNIPING_ON_LAYER 1
+#if system_os == 0
+#define NORMAL_CPI 1600
+#define SNIPING_CPI 400
+#else
+#define NORMAL_CPI 1600
+#define SNIPING_CPI 400
+#endif
 #define QUICK_TAP_TERM_PER_KEY
 #define QUICK_TAP_TERM 200
 #define COMBO_TERM 40

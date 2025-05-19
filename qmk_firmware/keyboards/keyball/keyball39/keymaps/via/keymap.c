@@ -62,7 +62,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   // Auto enable scroll mode when the highest layer is 3
-  keyball_set_scroll_mode(get_highest_layer(state) == 3);
+  keyball_set_scroll_mode(get_highest_layer(state) == AUTO_DARG_ON_LAYER);
+  keyball_set_cpi(get_highest_layer(state) == AUTO_SNIPING_ON_LAYER
+                      ? SNIPING_CPI
+                      : NORMAL_CPI);
   return state;
 }
 
@@ -84,6 +87,19 @@ const uint16_t PROGMEM under[] = {KC_M, KC_DOT, COMBO_END};
 const uint16_t PROGMEM tilde[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM hash[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM grv[] = {KC_E, KC_R, COMBO_END};
+#if system_os == 0
+combo_t key_combos[] = {
+    COMBO(copy, LGUI(KC_C)),     COMBO(cut, LGUI(KC_X)),
+    COMBO(paste, LGUI(KC_V)),    COMBO(minus, KC_MINS),
+    COMBO(plus, LSFT(KC_EQL)),   COMBO(equal, KC_EQL),
+    COMBO(lpar, LSFT(KC_9)),     COMBO(rpar, LSFT(KC_0)),
+    COMBO(lsbrc, KC_LBRC),       COMBO(rsbrc, KC_RBRC),
+    COMBO(lcbrc, LSFT(KC_LBRC)), COMBO(rcbrc, LSFT(KC_RBRC)),
+    COMBO(dqt, LSFT(KC_QUOT)),   COMBO(sqt, KC_QUOT),
+    COMBO(under, LSFT(KC_MINS)), COMBO(tilde, LSFT(KC_GRV)),
+    COMBO(hash, LSFT(KC_3)),     COMBO(grv, KC_GRV),
+};
+#else
 combo_t key_combos[] = {
     COMBO(copy, LCTL(KC_C)),     COMBO(cut, LCTL(KC_X)),
     COMBO(paste, LCTL(KC_V)),    COMBO(minus, KC_MINS),
@@ -95,6 +111,7 @@ combo_t key_combos[] = {
     COMBO(under, LSFT(KC_MINS)), COMBO(tilde, LSFT(KC_GRV)),
     COMBO(hash, LSFT(KC_3)),     COMBO(grv, KC_GRV),
 };
+#endif
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
