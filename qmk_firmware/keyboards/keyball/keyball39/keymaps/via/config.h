@@ -48,7 +48,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KEYBALL_CPI_DEFAULT NORMAL_CPI
 #define SNIPING_CPI 400
 #else
-#define NORMAL_CPI 1200
+#define NORMAL_CPI 500
 #define KEYBALL_CPI_DEFAULT NORMAL_CPI
 #define SNIPING_CPI 300
 #endif

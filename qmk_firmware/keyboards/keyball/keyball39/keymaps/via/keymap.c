@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
   // Auto enable scroll mode when the highest layer is 3
   keyball_set_scroll_mode(get_highest_layer(state) == AUTO_DARG_ON_LAYER);
-  keyball_set_cpi(get_highest_layer(state) == AUTO_SNIPING_ON_LAYER
-                      ? SNIPING_CPI / 100
-                      : NORMAL_CPI / 100);
+  // keyball_set_cpi(get_highest_layer(state) == AUTO_SNIPING_ON_LAYER
+  // ? SNIPING_CPI / 100
+  // : NORMAL_CPI / 100);
   return state;
 }
 
@@ -87,7 +87,7 @@ const uint16_t PROGMEM under[] = {KC_M, KC_DOT, COMBO_END};
 const uint16_t PROGMEM tilde[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM hash[] = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM grv[] = {KC_E, KC_R, COMBO_END};
-#if system_os == 0
+#if SYSTEM_OS == 0
 combo_t key_combos[] = {
     COMBO(copy, LGUI(KC_C)),     COMBO(cut, LGUI(KC_X)),
     COMBO(paste, LGUI(KC_V)),    COMBO(minus, KC_MINS),
