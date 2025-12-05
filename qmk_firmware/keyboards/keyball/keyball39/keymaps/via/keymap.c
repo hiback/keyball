@@ -31,23 +31,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [1] = LAYOUT_universal(
-    KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                            KC_NO    , S(KC_1)  , S(KC_2)  , S(KC_7)  , KC_F12     ,
-    KC_LGUI  , KC_LALT  , KC_LSFT  , KC_LCTL  , KC_F11   ,                            S(KC_8)  , KC_BTN1  , KC_BTN3  , KC_BTN2  , S(KC_BSLS) ,
-    KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,                            KC_NO    , S(KC_5)  , S(KC_6)  , S(KC_4)  , KC_BSLS    ,
+    KC_F12   , KC_F7    , KC_F8    , KC_F9    , KC_NO    ,                            KC_NO    , S(KC_1)  , S(KC_2)  , S(KC_7)  , KC_PSCR    ,
+    KC_F11   , KC_F4    , KC_F5    , KC_F6    , KC_DEL   ,                            S(KC_6)  , KC_BTN1  , KC_BTN2  , S(KC_4)  , S(KC_BSLS) ,
+    KC_F10   , KC_F1    , KC_F2    , KC_F3    , KC_NO    ,                            KC_NO    , S(KC_8)  , KC_BTN3  , S(KC_5)  , KC_BSLS    ,
     KC_NO    , KC_NO    , KC_NO    , _______  , _______  , _______  ,      _______  , _______  , KC_NO    , KC_NO    , KC_NO    , KC_NO
   ),
 
   [2] = LAYOUT_universal(
     KC_MINS  , KC_7     , KC_8     , KC_9     , KC_SLSH  ,                            KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO    ,
-    KC_0     , KC_4     , KC_5     , KC_6     , KC_DOT   ,                            KC_NO    , KC_RCTL  , KC_RSFT  , KC_RALT  , KC_RGUI  ,
-    S(KC_EQL), KC_1     , KC_2     , KC_3     , S(KC_8)  ,                            KC_NO    , KC_LNG1  , KC_LNG2  , KC_NO    , KC_NO    ,
+    KC_0     , KC_4     , KC_5     , KC_6     , KC_DOT   ,                            KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , KC_NO    ,
+    S(KC_EQL), KC_1     , KC_2     , KC_3     , S(KC_8)  ,                            KC_NO    , KC_F13   , KC_F14   , KC_F15   , KC_NO    ,
     KC_NO    , KC_NO    , KC_NO    , _______  , _______  , _______  ,      _______  , _______  , KC_NO    , KC_NO    , KC_NO    , KC_NO
   ),
 
   [3] = LAYOUT_universal(
-    KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO    ,                            KC_HOME  , KC_PGDN  , KC_PGUP  , KC_END   , KC_MUTE  ,
-    KC_LGUI  , KC_LALT  , KC_LSFT  , KC_LCTL  , KC_NO    ,                            KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , KC_DEL   ,
-    KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO    ,                            KC_MPRV  , KC_VOLD  , KC_VOLU  , KC_MNXT  , KC_MPLY  ,
+    KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO    ,                            KC_HOME  , KC_PGDN  , KC_PGUP  , KC_END   , KC_PSCR  ,
+    KC_LGUI  , KC_LALT  , KC_LSFT  , KC_LCTL  , KC_NO    ,                            KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , KC_MPLY  ,
+    KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO    ,                            KC_MPRV  , KC_VOLD  , KC_VOLU  , KC_MNXT  , KC_MUTE  ,
     KC_NO    , KC_NO    , KC_NO    , _______  , _______  , _______  ,      _______  , _______  , KC_NO    , KC_NO    , KC_NO    , KC_NO
   ),
 
@@ -66,17 +66,17 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   keyball_set_scroll_mode(layer == AUTO_DARG_ON_LAYER);
 
   switch (layer) {
-    case 1:
-      keyball_set_cpi(NORMAL_CPI / 100);
-      break;
-    case 3:
-      // Scrolling is active, but we'll set CPI to normal as a baseline.
-      keyball_set_cpi(NORMAL_CPI / 100);
-      break;
-    default:
-      // Double the CPI for all other layers.
-      keyball_set_cpi((NORMAL_CPI * 2) / 100);
-      break;
+  case 1:
+    keyball_set_cpi(NORMAL_CPI / 100);
+    break;
+  case 3:
+    // Scrolling is active, but we'll set CPI to normal as a baseline.
+    keyball_set_cpi(NORMAL_CPI / 100);
+    break;
+  default:
+    // Double the CPI for all other layers.
+    keyball_set_cpi((NORMAL_CPI * 2) / 100);
+    break;
   }
   return state;
 }
