@@ -61,11 +61,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  uint8_t layer = get_highest_layer(state);
   // Auto enable scroll mode when the highest layer is 3
-  keyball_set_scroll_mode(get_highest_layer(state) == AUTO_DARG_ON_LAYER);
-  // keyball_set_cpi(get_highest_layer(state) == AUTO_SNIPING_ON_LAYER
-  // ? SNIPING_CPI / 100
-  // : NORMAL_CPI / 100);
+  keyball_set_scroll_mode(layer == AUTO_DARG_ON_LAYER);
+
+  switch (layer) {
+    case 1:
+      keyball_set_cpi(NORMAL_CPI / 100);
+      break;
+    case 3:
+      // Scrolling is active, but we'll set CPI to normal as a baseline.
+      keyball_set_cpi(NORMAL_CPI / 100);
+      break;
+    default:
+      // Double the CPI for all other layers.
+      keyball_set_cpi((NORMAL_CPI * 2) / 100);
+      break;
+  }
   return state;
 }
 
