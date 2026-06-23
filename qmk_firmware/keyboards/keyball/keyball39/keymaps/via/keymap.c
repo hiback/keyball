@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "config.h"
 #include QMK_KEYBOARD_H
 
 #include "quantum.h"
@@ -65,19 +66,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   // Auto enable scroll mode when the highest layer is 3
   keyball_set_scroll_mode(layer == AUTO_DARG_ON_LAYER);
 
-  switch (layer) {
-  case 1:
-    keyball_set_cpi(NORMAL_CPI / 100);
-    break;
-  case 3:
-    // Scrolling is active, but we'll set CPI to normal as a baseline.
-    keyball_set_cpi(NORMAL_CPI / 100);
-    break;
-  default:
-    // Double the CPI for all other layers.
-    keyball_set_cpi((NORMAL_CPI * 2) / 100);
-    break;
-  }
+  // switch (layer) {
+  // case 1:
+  //   keyball_set_cpi(SNIPING_CPI / 100);
+  //   break;
+  // case 3:
+  //   // Scrolling is active, but we'll set CPI to normal as a baseline.
+  //   keyball_set_cpi(SNIPING_CPI / 100);
+  //   break;
+  // default:
+  //   // Double the CPI for all other layers.
+  //   keyball_set_cpi((NORMAL_CPI) / 100);
+  //   break;
+  // }
   return state;
 }
 
